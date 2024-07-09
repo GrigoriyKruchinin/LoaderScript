@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "loaderscript"
+version = "0.1.0"
+description = ""
+authors = ["GrigoriyKruchinin <gkruchinin75@gmail.com>"]
+readme = "README.md"
+packages = [
+    {include = "repo_downloader"},
+    {include = "tests"}
+]
+
+[tool.poetry.dependencies]
+python = "^3.12"
+aiohttp = "^3.9.5"
+
+[tool.poetry.group.dev.dependencies]
+wemake-python-styleguide = "^0.19.2"
+pytest = "^8.2.2"
+pytest-asyncio = "^0.23.7"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
