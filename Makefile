@@ -3,8 +3,17 @@
 start:
 	python main.py
 
+nitpick:
+	poetry run nitpick check
+
 lint:
-	flake8 .
+	poetry run flake8 .
 
 test:
-	pytest .
+	poetry run pytest
+
+test_cov:
+	pytest --cov=./repo_downloader
+
+test_report:
+	pytest --cov=./repo_downloader --cov-report=xml
