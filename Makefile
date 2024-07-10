@@ -13,7 +13,7 @@ test:
 	poetry run pytest
 
 test_cov:
-	pytest --cov=./repo_downloader
+	pytest --cov=.
 
 test_report:
-	pytest --cov=./repo_downloader --cov-report=xml
+	pytest --cov=. --cov-report=xml

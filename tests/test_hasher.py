@@ -49,7 +49,7 @@ async def test_calculate_sha256_store_results():
 async def test_calculate_sha256_empty_folder():
     with tempfile.TemporaryDirectory() as temp_dir:
         sha256_hash = await calculate_sha256(temp_dir)
-        assert not sha256_hash 
+        assert not sha256_hash
 
 
 @pytest.mark.asyncio()

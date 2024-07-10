@@ -15,13 +15,17 @@ DOWNLOAD_DIR = 'project-configuration'
 HASHES_FILE = 'project-configuration/hashes.json'
 
 
-async def main() -> None:
+async def main(
+    url: str = API_URL,
+    download_dir: str = DOWNLOAD_DIR,
+    hashes_file: str = HASHES_FILE,
+) -> None:
     """Скрипт для загрузки репозитория и вычисления SHA256 хэшей файлов."""
     async with aiohttp.ClientSession() as session:
-        await download_content(session, API_URL, DOWNLOAD_DIR)
+        await download_content(session, url=url, local_path=download_dir)
 
-    sha256_hash = await calculate_sha256(DOWNLOAD_DIR)
-    await write_hashes_to_file(sha256_hash, HASHES_FILE)
+    sha256_hash = await calculate_sha256(folder_path=download_dir)
+    await write_hashes_to_file(sha256_hash, output_file=hashes_file)
 
 
 if __name__ == '__main__':
